@@ -1,0 +1,185 @@
+.bg{
+    background-color: #fd5d5d !important;
+}
+.nav-link{
+    color: azure;
+}
+.assistance_bar{
+    background-color: red;
+    width:fit-content;
+    margin:auto;
+}
+button:focus{
+    outline: none;
+}
+.dropdown-box{
+    background-color: red;
+    border: 0px;
+}
+.dropdown-item:hover{
+    background-color: rgb(61, 60, 60);
+}
+.submit, .reset{
+    background-color: green;
+    color: azure;
+    border:1px solid black;
+    border-radius:2px;
+}
+.reset{
+    background-color: red;
+}
+
+/*-------------------Side navigation Bar-------------------*/
+
+.user{
+    list-style-type: none;
+    width: fit-content;
+    border-radius: 0px 6px 6px 0px;
+    padding-left:0px;
+    padding-bottom: 0px;
+}
+.user-item{
+    padding: 14px;
+    margin-bottom:5px;
+    background-color: whitesmoke;
+}
+.user-item:hover{
+    background-color: #ff8080;
+}
+.user-link{
+    text-decoration: none;
+    color: black;
+}
+
+.main_content{
+    float: left;
+}
+/*-------------------------dashboard posts design-----------------------*/
+.middle-container{
+    background-color:white;
+    width: 75%;
+    margin-top: 44px;
+    overflow: scroll;
+}
+.post{
+    width: min-content;
+    margin:0px auto;
+}
+.post-ques{
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: bolder;
+    text-align:left;
+    margin-bottom: 2px;
+}
+.post-image{
+    margin:0px auto !important;
+}
+.post-text{
+    text-align: justify;
+    font-family: sans-serif;
+    word-spacing: normal;
+}
+.trend-container{
+    position:fixed;
+    right: 0;
+}
+.compose{
+    position: fixed;
+    bottom:0;
+    left:0;
+}
+.content{
+    align-items: center;
+    justify-content: center;
+}
+input{
+    margin: 10px auto;
+    
+}
+.main-head{
+    text-align: center; 
+    font-family: sans-serif;
+}
+.main-content{
+    color: green;
+}
+.attract-head{
+    font-family: sans-serif;
+    color:green;
+}
+
+/*------------Sign Up Page------------*/
+
+.signup{
+    list-style-type:disc;
+    color: green;
+    font-family: sans-serif;
+    font-size: larger;
+}
+.signup-item{
+    font-family: sans-serif;
+    font-size: medium;
+}
+
+/* post.ejs */
+.fav{
+    list-style-type: none;
+}
+.post-head{
+    font-size:larger;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.post-content{
+    font-family: sans-serif;
+    font-size: medium;
+    text-align: left;
+}
+/*Profile page*/
+
+@media screen and (min-width:992px) {
+    .profile-main{
+        margin:85px;
+    }
+    
+}
+.profile-section{
+    border:1px solid black;
+}
+.profile-nav{
+    list-style-type: none;
+}
+.profile-item{
+    /*border:1x solid black;*/
+    margin-bottom:10px;
+    text-align: center;
+    background-color: rgb(34, 32, 32);
+}
+.profile-link{
+    text-decoration: none;
+    color: white;
+}
+.profile-item:hover{
+    background-color: #fd5d5d;
+}
+
+/*------------------  Bookmark Styles--------------------*/
+.bookmark-main{
+    list-style-type: none;
+    overflow: scroll;
+}
+.bookmark-content{
+    font-family: sans-serif;
+    text-align: justify;
+    margin:10px 0px;
+    width: 100%;
+}
+.bookmark-button{
+    background: none;
+    border:0px;
+    color:blue;
+}
+.bookmark{
+    float:left;
+}

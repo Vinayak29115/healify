@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head"); -%>
+</head>
+<body>
+    <header>
+        <%- include("partials/header"); -%>
+    </header>
+    <div class="row">
+
+    </div>
+    <br>
+    <ul class="row fav">
+        <% posts.forEach( function (post) {%>
+            <li class="col-lg-12">
+                <h3 class="post-head"><%= postHead%></h3>
+                <p class="post-content"><%= postContent%></p>
+            </li>
+            <hr>
+        <% });%> 
+    </ul>
+    <footer>
+        <%- include("partials/footer"); -%>
+    </footer>
+</body>
+</html>
