@@ -8,65 +8,78 @@
     <header>
         <%- include("partials/header"); -%>
     </header>
-    <div class="main_content">
-        <ul class="user">
-            <li class="user-item">
-                <i class="fas fa-duotone fa-user"></i>
-                    <a href="/profile" class="user-link">Profile</a>
-            </li>
-            <li class="user-item">
-                <i class="fa-duotone fa-layer-plus"></i>
-                    <a href="/posts" class="user-link">Posts</a>
-            </li>
-            <li class="user-item">
-                <i class="fas fa-duotone fa-bookmark"></i>
-                    <a href="/bookmark" class="user-link">Bookmark</a>
-            </li>
-            <li class="user-item">
-                <i class="fa-solid fa-calendar-check"></i>
-                    <a href="#" class="user-link">Subscriptions</a>
-            </li>
-            <li class="user-item">
-                <i class="fa-duotone fa-arrow-right-from-bracket"></i>
-                    <a href="#" class="user-link">Logout</a>
-            </li>
-        </ul>
+    <div class="row">
         
-    <!--<a href="/compose"><i class="fa-solid fa-paper-plane compose"></i></a>-->
-    </div>
-    <div class="main_content middle-container">
-        <ul class="feed-section" style="list-style-type: none;">
-           <!--<//% post.forEach(function(user){%>--> 
-                <li class="post">
-                    <h1 class="post-ques">Question?</h1>
-                    <img src="heart.jpg" alt="post_image" class="post-image">
-                    <p class="post-text">
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <hr> 
+        <!--<a href="/compose"><i class="fa-solid fa-paper-plane compose"></i></a>-->
+        <div class="col-lg-2">
+            <ul class="navigation" style="list-style-type: none;">
+                <li class="buttons">
+                    <button onclick="location.href='/profile'" class="nav-buttons">Profile</button>
                 </li>
-                <li class="post">
-                    <h1 class="post-ques">Question?</h1>
-                    <img src="heart.jpg" alt="post_image" class="post-image">
-                    <p class="post-text">
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <hr> 
+                <li class="buttons">
+                    <button onclick="location.href='/posts'" class="nav-buttons">Post</button>
                 </li>
-            <!--<//% });%>-->
-        </ul>
+                <li class="buttons">
+                    <button onclick="location.href='/bookmark'" class="nav-buttons">Bookmark<button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='#'" class="nav-buttons">Subscriptions</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='#'" class="nav-buttons">Logout</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="feed-content"> 
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+            <hr>
+            <div class="feed-content"> 
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+            <hr>
+            <div class="feed-content"> 
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+            <hr>
+            <div class="feed-content"> 
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-3 trend">
+            <!--This trend container is linked with India health news to get trends api https://newsapi.org/s/india-health-news-api-->
+            <!--Health Headlines having font-size:x-large; font-family:sans-serif; font-weight:bold;-->
+            <!--<h3>This is heading 1</h3>
+            <hr>
+            <h3>This is heading 2</h3>
+            <hr>
+            <h3>This is heading 3</h3>
+            <hr>-->
+            <ul style="list-style-type:none; overflow: scroll;">
+                <% NEWS.forEach(function(newsitem){ %>
+                    <li>
+                        <p style="text-align:justify;"><%=newsitem.title%><a href="<%=newsitem.url%>" target="_blank">Read More...</a></p>
+                    </li>
+                    <hr>
+                <% }) %>-->
+            </ul>
+        </div>
     </div>
 
-    <div class="main_content trend-container">
-        <!--This trend container is linked with India health news to get trends api https://newsapi.org/s/india-health-news-api-->
-        <!--Health Headlines having font-size:x-large; font-family:sans-serif; font-weight:bold;-->
-        <h3>This is heading 1</h3>
-        <hr>
-        <h3>This is heading 2</h3>
-        <hr>
-        <h3>This is heading 3</h3>
-        <hr>
-    </div>
 
     <footer>
         <%- include("partials/footer"); -%>
