@@ -28,6 +28,38 @@ button:focus{
 .reset{
     background-color: red;
 }
+/*------------------Dashboard------------------------------*/
+.navigation{
+    list-style-type: none;
+    height:100%;
+    background-color: whitesmoke;
+}
+.nav-buttons{
+    width: 100%;
+    background-color: whitesmoke;
+    border:0;
+    text-align: left;
+}
+.nav-buttons:hover{
+    background-color: #ff8080;
+}
+.buttons{
+    margin-bottom:10px;
+}
+.feed-content{
+    position: relative;
+    left: 12.5%;
+    width: 75%;
+}
+.feed-info{
+    text-align: justify;
+    font-family: sans-serif;
+    word-spacing: normal;
+    font-size: medium;
+}
+.feed-image{
+    width:100%;
+}
 
 /*-------------------Side navigation Bar-------------------*/
 
@@ -55,59 +87,8 @@ button:focus{
     float: left;
 }
 /*-------------------------dashboard posts design-----------------------*/
-.middle-container{
-    background-color:white;
-    width: 75%;
-    margin-top: 44px;
-    overflow: scroll;
-}
-.post{
-    width: min-content;
-    margin:0px auto;
-}
-.post-ques{
-    font-size: larger;
-    font-family: sans-serif;
-    font-weight: bolder;
-    text-align:left;
-    margin-bottom: 2px;
-}
-.post-image{
-    margin:0px auto !important;
-}
-.post-text{
-    text-align: justify;
-    font-family: sans-serif;
-    word-spacing: normal;
-}
-.trend-container{
-    position:fixed;
-    right: 0;
-}
-.compose{
-    position: fixed;
-    bottom:0;
-    left:0;
-}
-.content{
-    align-items: center;
-    justify-content: center;
-}
-input{
-    margin: 10px auto;
-    
-}
-.main-head{
-    text-align: center; 
-    font-family: sans-serif;
-}
-.main-content{
-    color: green;
-}
-.attract-head{
-    font-family: sans-serif;
-    color:green;
-}
+
+
 
 /*------------Sign Up Page------------*/
 
@@ -182,4 +163,10 @@ input{
 }
 .bookmark{
     float:left;
+}
+.input{
+    width:80%;
+}
+.submit, .reset{
+    text-align: center;
 }
