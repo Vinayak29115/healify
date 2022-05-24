@@ -60,6 +60,44 @@
                 <!--A voting bar-->
             </div>
         </div>
+        <!--- Automatic Popup Login ------------>
+<div class="popup">
+        <button id="close">&times;</button>
+        <h1>Log In</h1>
+        <br>
+        <form id="login" method="get" action="login.php">
+          <label><b>User Name
+          </b>
+          </label>
+          <input type="text" name="Uname" id="Uname" placeholder="Username">
+          <br><br>
+          <label><b>Password
+          </b>
+          </label>
+          <input type="Password" name="Pass" id="Pass" placeholder="Password">
+          <br><br>
+
+          <input type="checkbox" id="check">
+          <span>Remember me</span>
+          <br><br>
+          <a href="#">Forgot Password</a>
+          <input type="button" name="log" id="log" value="Log In Here">
+        </form>
+        <script >
+          window.addEventListener("load", function(){
+            setTimeout(
+              function open(event){
+                document.querySelector(".popup").style.display = "block";
+              },
+              2000
+            )
+          });
+          document.querySelector("#close").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+          });
+        </script>
+
+  </div>
         <div class="col-lg-3 col-sm-3 trend">
             <!--This trend container is linked with India health news to get trends api https://newsapi.org/s/india-health-news-api-->
             <!--Health Headlines having font-size:x-large; font-family:sans-serif; font-weight:bold;-->
