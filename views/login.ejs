@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head"); -%>
+</head>
+<body >
+    <header>
+        <%- include("partials/header_login"); -%>
+    </header>
+    <!-- <br>
+    <div>
+        <h1 class="main-head">Online health Community & Personal Training</h1>
+        <p class="main-head main-content">Get an edge over others</p>
+    </div>
+    <br>
+    <br> -->
+    <div class="row content">
+        <!-- <div class="col-lg-3 col-sm-12">
+            <div class="col-lg-12 col-sm-12">
+            <h3 class="attract-head">Connect with other peoples</h3>
+            <p class="attract-para">We believe getting more and right suggestions will heal you in different ways.Connects with us and see the magic.</p>
+            </div>
+            <br>
+            <div class="col-lg-12 col-sm-12">
+                <p>In this Community you'll get to:</p>
+                <ul class="signup">
+                    <li class="signup-item">Push health related queries to community.</li>
+                    <li class="signup-item">Get professional assistance.</li>
+                    <li class="signup-item">All in one caretaker</li>
+                </ul>
+            </div>
+        </div> -->
+        <div class="col-lg-3 col-sm-12" style="padding-top:10%">
+          <h1>Log In</h1>
+            <form action="/login" method="post">
+                <input class="form-control" name="myemail" type="email" placeholder="Email">
+                <input class="form-control" name="mypass" type="password" placeholder="Password">
+                <a href="#" style="padding-left:55%">Forget Password</a>
+                <br>
+                <input class="btn btn-success" type="submit" value="Log In" style="background-color:#fd5d5d">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <%- include("partials/footer"); -%>
+    </footer>
+</body>
+</html>
