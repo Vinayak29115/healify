@@ -1,8 +1,11 @@
 .bg{
-    background-color: #fd5d5d !important;
+    background-color: rgb(58, 55, 55) !important;
 }
 .nav-link{
     color: azure;
+}
+.nav-link:hover{
+    background-color: #ff8080;
 }
 .assistance_bar{
     background-color: red;
@@ -27,6 +30,10 @@ button:focus{
 }
 .reset{
     background-color: red;
+}
+
+.dropdown-style{
+    border-left: 5px solid;
 }
 /*------------------Dashboard------------------------------*/
 .navigation{
@@ -60,7 +67,9 @@ button:focus{
 .feed-image{
     width:100%;
 }
-
+.trend{
+    border-left: 2px solid crimson;
+}
 /*-------------------Side navigation Bar-------------------*/
 
 .user{
@@ -117,7 +126,10 @@ button:focus{
     font-size: medium;
     text-align: left;
 }
-/*Profile page*/
+.content{
+    
+}
+/*----------------------Profile page--------------------------*/
 
 @media screen and (min-width:992px) {
     .profile-main{
