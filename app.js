@@ -6,24 +6,104 @@ const ejs_lint=require("ejs-lint");
 const fetch =require("node-fetch");
 const bodyparser= require("body-parser");
 const app = express();
+const mongoose= require("mongoose");
 
 app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({extended : true}));
 app.use(express.static(path.join(__dirname,"public")));
 
+mongoose.connect("mongodb+srv://admin:Dimpal%401979@cluster0.aiez7.mongodb.net/signsDB?retryWrites=true&w=majority" , { useNewUrlParser: true  ,
+useUnifiedTopology : true  } );
 
-app.get("/", async function(req,res){
+// ----------------feedDatabase---------------
 
-    const apikey = "cf0473208c26450d9ec1a8dee6d5a54c";
+const feedsSchema = new mongoose.Schema({
+  head: String,
+  picture: {
+    type: String,
+    get: v => `${v}`
+  },
+  data: String,
+})
+const Feed= mongoose.model("Feed", feedsSchema);
 
-    const url="https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=cf0473208c26450d9ec1a8dee6d5a54c";
-
-    const response = await fetch(url, {method:'GET'});
-    const data = await response.json();
-    //console.log(data.articles);
-    res.render("dashboard", {NEWS: data.articles});
-
+const feed1 = new Feed({
+  head: "Omicron Symptoms Can Look Like Allergies—Here's How to Tell the Difference",
+  picture: 'https://www.health.com/thmb/tOL84Bkbyso51VzdMIkuFabLNwE=/900x0/filters:no_upscale():max_bytes(150000):strip_icc():gifv():format(webp)/allergies-vs-omicron-pexels-polina-tankilevitch-3873179-180a09ce33164f04972e9c5c93431b57.jpg',
+  data: "With Omicron and its subvariants specifically—due to increased exposure to COVID-19 through vaccination or prior illness, or other variables—the virus generally causes more mild disease. Though symptoms don't stray too far from those typically associated with COVID-19 in general, Omicron and its subvariants, can look a lot like common cold, and even seasonal allergies.",
 });
+const feed2 = new Feed({
+  head: "Mental Illness and Gun Violence: Why It's Harmful to Link the Two",
+  picture: 'https://www.health.com/thmb/GQ_M27YdToUWeFxy5bPTkotTIk8=/900x0/filters:no_upscale():max_bytes(150000):strip_icc():gifv():format(webp)/memorial-candles-GettyImages-1397633812-29d8da595cec42a2b0a7c41325ba6f1e.jpg',
+  data: "An 18-year-old gunman claimed the lives of 19 school children and two adults in Uvalde, Texas, on Tuesday morning. The school shooting occurred just days after another mass shooting—a hate crime at a Buffalo, New York grocery store.",
+});
+const feed3 = new Feed({
+  head: "Kidney Disease Patients Face Increased Risk of Developing Cancer, Study Shows",
+  picture: 'https://assets.thehansindia.com/h-upload/2022/04/09/1286025-cancer.webp',
+  data: "People with mild-to-moderate chronic kidney disease (CKD), and those who have received kidney transplants, may have an increased risk of developing cancer, new research shows. In some cases, people with CKD may have a heightened risk of death from certain cancers, as well.",
+});
+feed1.save();
+feed2.save();
+feed3.save();
+const defaultFeeds = [feed1, feed2, feed3]
+
+// ----------------------bookmarkDatabase-------------------------
+
+const savesSchema = new mongoose.Schema({
+  head: String,
+  data: String,
+})
+const Save= mongoose.model("Save", savesSchema);
+
+const save1 = new Save({
+  head: "Rising Trends in Digital Health: 5 Technologies That Will Define the Future of Healthcare",
+  data: "The pandemic triggered massive disruption in the healthcare industry and pushed the sector to invest more in innovative new technology. Some of the following digital health trends gained momentum during the pandemic and are predicted to change the future of medicine:",
+});
+const save2 = new Save({
+  head: "Frequent Use of Antibiotics Tied to Inflammatory Bowel Disease in Older Adults",
+  data: "Older people who frequently take antibiotics are at greater risk of developing inflammatory bowel disease (IBD), according to research presented at Digestive Disease Week (DDW) 2022. The study has not been peer-reviewed or published.",
+});
+const save3 = new Save({
+  head: "12 fitness trends for 2022",
+  data: "With online workouts still trending and more gym-goers returning to the gym, the world is trying to adapt to a new way of life. Let’s look toward 2022 with optimism in the hopes that the pandemic releases its grip on the world. As technology continues to advance, there will be new opportunities for brands and consumers in fitness. ",
+});
+save1.save();
+save2.save();
+save3.save();
+const defaultSaves = [save1, save2, save3];
+
+
+app.get("/", getFeeds, api, renderForm);
+async function getFeeds(req, res, next) {
+   // Code here
+   Feed.find({}, function (err, foundFeeds) {
+     if(foundFeeds.length === 0){
+       Feed.insertMany(defaultFeeds, function(err){
+         if (err){
+           console.log(err);
+         }
+         else{
+           console.log("Working");
+         }
+       });
+       res.redirect("/");
+     }else{
+       res.locals.newListFeeds = foundFeeds;
+     }
+     next();
+   });
+};
+async function api (req,res, next){
+  const apikey = "cf0473208c26450d9ec1a8dee6d5a54c";
+  const url="https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=cf0473208c26450d9ec1a8dee6d5a54c";
+  const response = await fetch(url, {method:'GET'});
+  const data = await response.json();
+  res.locals.NEWS = data.articles;
+  next();
+}
+function renderForm(req, res) {
+    res.render("dashboard");
+};
 
 app.get("/compose",function(req,res){
     res.render("compose");
@@ -46,7 +126,21 @@ app.get("/profile",function(req,res){
 });
 
 app.get("/bookmark",function(req,res){
-    res.render("bookmark");
+  Save.find({}, function(err, foundSaves){
+  if(foundSaves.length === 0){
+    Save.insertMany(defaultSaves, function(err){
+      if (err){
+        console.log(err);
+      }
+      else{
+        console.log("Working");
+      }
+    });
+    res.redirect("/bookmark");
+  }else{
+    res.render("bookmark", {newListSaves: foundSaves});
+  }
+})
 });
 
 app.post("/compose",function(req,res){
