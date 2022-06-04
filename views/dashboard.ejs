@@ -32,32 +32,23 @@
         </div>
 
         <div class="col-lg-7">
+            <!-- <div class="feed-content"> 
+                        <h3>Question?</h3>
+                        <img class="feed-image" src="new1.jpg" alt="post-image">
+                        <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p> -->
+                        <!--A voting bar-->
+          <!-- </div>
+          <hr> -->
             <div class="feed-content"> 
-                <h3>Question?</h3>
-                <img class="feed-image" src="new1.jpg" alt="post-image">
-                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
-                <!--A voting bar-->
-            </div>
-            <hr>
-            <div class="feed-content"> 
-                <h3>Question?</h3>
-                <img class="feed-image" src="new1.jpg" alt="post-image">
-                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
-                <!--A voting bar-->
-            </div>
-            <hr>
-            <div class="feed-content"> 
-                <h3>Question?</h3>
-                <img class="feed-image" src="new1.jpg" alt="post-image">
-                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
-                <!--A voting bar-->
-            </div>
-            <hr>
-            <div class="feed-content"> 
-                <h3>Question?</h3>
-                <img class="feed-image" src="new1.jpg" alt="post-image">
-                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
-                <!--A voting bar-->
+                <ul>
+              <%  newListFeeds.forEach(function(feed){ %>
+                  <li>
+                    <h2><%= feed.head%></h2>
+                    <img class="feed-image"src="<%= feed.picture%>" alt="feedImage" >
+                    <p class="feed-info"><%= feed.data%></p>
+                  </li>
+              <%  }) %>
+            </ul>
             </div>
         </div>
         <!--- Automatic Popup Login ------------>
@@ -88,12 +79,14 @@
             setTimeout(
               function open(event){
                 document.querySelector(".popup").style.display = "block";
+                document.querySelector("#overlay").style.opacity = 0.3;
               },
               2000
             )
           });
           document.querySelector("#close").addEventListener("click", function(){
             document.querySelector(".popup").style.display = "none";
+            document.querySelector("#overlay").style.opacity = 1;
           });
         </script>
 
