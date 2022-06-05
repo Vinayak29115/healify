@@ -15,6 +15,142 @@ app.use(express.static(path.join(__dirname,"public")));
 mongoose.connect("mongodb+srv://admin:Dimpal%401979@cluster0.aiez7.mongodb.net/signsDB?retryWrites=true&w=majority" , { useNewUrlParser: true  ,
 useUnifiedTopology : true  } );
 
+// ----------------SignUpDatabase-------------
+
+const detailsSchema = new mongoose.Schema ({
+  firstname : {
+    type : String ,
+    //required : true
+  } ,
+  lastname : {
+    type : String ,
+    //required : true
+  } ,
+  email : {
+    type : String ,
+    //required : true ,
+    //unique : true
+  } ,
+   pass : {
+     type : String ,
+     //required : true ,
+   } ,
+  confirmpass : {
+    type : String ,
+    //required : true ,
+  } ,
+  contact : {
+    type : Number ,
+    //required : true ,
+    //unique : true ,
+  }
+} );
+
+const Detail = mongoose.model("Detail", detailsSchema) ;
+
+
+const detail1 = new Detail ( {
+  firstname :  "Simran" ,
+  lastname : "Bhardwaj" ,
+  email : "simran.1923csi1111@kiet.edu" ,
+  pass :"hehe" ,
+  confirmpass : "hehe" ,
+  contact : 1234567890 ,
+}) ;
+
+detail1.save() ;
+
+const detail2 = new Detail ( {
+  firstname : "Vinayak" ,
+  lastname : "Rawat" ,
+   email : "vinayak@kiet.edu",
+   pass : "haha" ,
+   confirmpass : "haha" ,
+  contact : 4567890987 ,
+}) ;
+
+detail2.save() ;
+
+const detail3 = new Detail ( {
+  firstname : "Shivang" ,
+  lastname : "kumar" ,
+  email : "shivang@kiet.edu" ,
+   pass : "op" ,
+  confirmpass : "op" ,
+  contact : 1546783456 ,
+}) ;
+
+detail3.save() ;
+
+const defaultdetails = [detail1,detail2,detail3] ;
+
+app.post("/signup",function(req,res){
+    const firstname = req.body.fname ;
+
+    const detailLastName = req.body.lname ;
+
+     const detailEmail = req.body.myemail ;
+
+     const detailPass = req.body.mypass ;
+
+     const detailConfirmPass = req.body.mypass2 ;
+
+    const detailContact = req.body.mynum ;
+
+    const newuser = new Detail ( {
+      firstname : firstname ,
+      lastname : detailLastName ,
+      email : detailEmail ,
+      pass : detailPass ,
+      confirmpass : detailConfirmPass ,
+      contact : detailContact
+
+    } );
+
+    newuser.save() ;
+    res.redirect("/") ;
+}) ;
+
+app.get("/signup",function(req,res){
+Detail.find({} , function(err,foundDetails) {
+  if(foundDetails.length === 0) {
+Detail.insertMany( defaultdetails , function(err)  {
+  if(err) {
+    console.log(err)   ;
+   }
+    else {
+      console.log("Sucessfully saved details to database") ;
+    }
+}) ;
+res.redirect("/");
+}
+else{
+  res.redirect("/signup");
+}
+});
+});
+
+// --------------Checking if user is registered or not ---------------
+
+
+app.post("/login",function(req,res){
+  const Usname = req.body.Uname ;
+
+  const Logpass = req.body.Pass ;
+
+   Detail.findOne({ email: Usname } , function(err , existingUser) {
+   if (existingUser == null) {
+     res.redirect("signup") ;
+        console.log("This Email is not Registered , Kindly Login First");
+   }
+
+   else {
+        res.redirect("sign-redirect");
+   }
+ }) ;
+});
+
+
 // ----------------feedDatabase---------------
 
 const feedsSchema = new mongoose.Schema({
@@ -104,6 +240,10 @@ async function api (req,res, next){
 function renderForm(req, res) {
     res.render("dashboard");
 };
+
+app.get("/sign-redirect",function(req,res){
+    res.render("signup_redirect");
+});
 
 app.get("/compose",function(req,res){
     res.render("compose");
