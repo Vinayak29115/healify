@@ -1,0 +1,301 @@
+.bg{
+    background-color: rgb(58, 55, 55) !important;
+}
+.nav-link{
+    color: azure;
+}
+.nav-link:hover{
+    background-color: #ff8080;
+}
+.assistance_bar{
+    background-color: red;
+    width:fit-content;
+    margin:auto;
+}
+button:focus{
+    outline: none;
+}
+.dropdown-box{
+    background-color: red;
+    border: 0px;
+}
+.dropdown-item:hover{
+    background-color: rgb(61, 60, 60);
+}
+.submit, .reset{
+    background-color: green;
+    color: azure;
+    border:1px solid black;
+    border-radius:2px;
+}
+.reset{
+    background-color: red;
+}
+
+.dropdown-style{
+    border-left: 5px solid;
+}
+/*------------------Dashboard------------------------------*/
+.navigation{
+    list-style-type: none;
+    height:100%;
+    background-color: whitesmoke;
+}
+.nav-buttons{
+    width: 100%;
+    background-color: whitesmoke;
+    border:0;
+    text-align: center;
+}
+.nav-buttons:hover{
+    background-color: #ff8080;
+}
+.buttons{
+    margin-bottom:10px;
+}
+.feed-content{
+    position: relative;
+    left: 12.5%;
+    width: 75%;
+}
+.feed-info{
+    text-align: justify;
+    font-family: sans-serif;
+    word-spacing: normal;
+    font-size: medium;
+}
+.feed-image{
+    width:100%;
+}
+.feedNav{
+    position:relative;
+    left: 640px;
+}
+.fNav{
+    margin-right: 10px;
+}
+.trend{
+    border-left: 2px solid crimson;
+}
+/*-------------------Side navigation Bar-------------------*/
+
+.user{
+    list-style-type: none;
+    width: fit-content;
+    border-radius: 0px 6px 6px 0px;
+    padding-left:0px;
+    padding-bottom: 0px;
+}
+.user-item{
+    padding: 14px;
+    margin-bottom:5px;
+    background-color: whitesmoke;
+}
+.user-item:hover{
+    background-color: #ff8080;
+}
+.user-link{
+    text-decoration: none;
+    color: black;
+}
+
+.main_content{
+    float: left;
+}
+/*-------------------------About Us-----------------------*/
+p{
+    text-align:justify;
+    padding:2%;
+    font-size:20px;
+}
+#about_list{
+    /* list-style-type: none; */
+    font-size:18px;
+    margin-left: 1%;
+}
+#about_list>li:hover{
+    text-decoration: underline; text-decoration-color: red; text-decoration-thickness: 4px;
+}
+
+/*--------Assistance Post------------*/
+#assistance_question{
+    text-align: center;
+    margin:2% 0 4% 0;
+}
+#assistance_post{
+    width:30%;
+    margin:0px auto;
+}
+#assistance_post>input{
+    margin:0% 37%;
+    padding:1% 3%;
+}
+#assistance_post>input:hover{
+    background-color: #AEE2FF;
+}
+/*------------Sign Up Page------------*/
+
+.signup{
+    list-style-type:disc;
+    color: green;
+    font-family: sans-serif;
+    font-size: larger;
+}
+.signup-item{
+    font-family: sans-serif;
+    font-size: medium;
+}
+.content{
+    position:relative;
+    left:25%;
+}
+/* post.ejs */
+.fav{
+    list-style-type: none;
+}
+.post-head{
+    font-size:larger;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.post-content{
+    font-family: sans-serif;
+    font-size: medium;
+    text-align: left;
+}
+.main-head{
+    text-align: center;
+}
+.post-button{
+    position:fixed;
+    left:3%;
+    bottom:30px;
+    border:1px solid white;
+    border-radius:20px;
+    width:10%;
+    text-align:center;
+    background-color: #ff8080;
+}
+/*----------------------Profile page--------------------------*/
+
+@media screen and (min-width:992px) {
+    .profile-main{
+        margin:85px;
+    }
+    
+}
+.profile-section{
+    border:1px solid black;
+}
+.profile-nav{
+    list-style-type: none;
+}
+.profile-item{
+    /*border:1x solid black;*/
+    margin-bottom:10px;
+    text-align: center;
+    background-color: rgb(34, 32, 32);
+}
+.profile-link{
+    text-decoration: none;
+    color: white;
+}
+.profile-item:hover{
+    background-color: #fd5d5d;
+}
+
+/*------------------  Bookmark Styles--------------------*/
+.bookmark-main{
+    list-style-type: none;
+    overflow: scroll;
+}
+.bookmark-content{
+    font-family: sans-serif;
+    text-align: justify;
+    margin:10px 0px;
+    width: 100%;
+}
+.bookmark-button{
+    background: none;
+    border:0px;
+    color:blue;
+}
+.bookmark{
+    float:left;
+}
+.input{
+    width:80%;
+}
+.submit, .reset{
+    text-align: center;
+}
+
+/*-------------------- Automatic Popup------------------ */
+.popup{
+    background-color: #ffffff;
+    width: 450px;
+    padding: 30px 40px;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    border-style: solid;
+    font-size: 1rem;
+    font-family: "Poppins",sans-serif;
+    display: none;
+    /* text-align: center; */
+}
+.form{
+  text-align: center;
+}
+.popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #c5c5c5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#log{
+    display: block;
+    width: 150px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #fd5d5d;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 0;
+}
+/* --------------------login------------------ */
+.login_box{
+  margin: auto;
+  margin-top: 150px;
+  width: 35%;
+  border: 3px ;
+  padding: 10px;
+  border-style:groove;
+}
+/*-----compose page--------------------------*/
+.form-input{
+    width:50%;
+    margin:0px auto;
+}
+.form-label{
+    position: relative;
+    left:25%;
+}
+
+/*--------Signup redirect----------------*/
+.welcome_phrase{
+    text-align: center;
+    padding:2% 0%;
+}
+#welcome_logo{
+    margin: 0 35% !important;
+}

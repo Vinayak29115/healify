@@ -1,0 +1,24 @@
+{
+  "name": "healify",
+  "version": "1.0.0",
+  "description": "Final Year Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vinayak",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "ejs": "^3.1.6",
+    "ejs-lint": "^1.2.1",
+    "express": "^4.17.3",
+    "mongoose": "^6.3.1",
+    "node-fetch": "^2.6.11",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "path": "^0.12.7",
+    "sentiment": "^5.0.2"
+  }
+}

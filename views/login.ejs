@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head"); -%>
+</head>
+<body >
+    <header>
+        <%- include("partials/header_login"); -%>
+    </header>
+    <div class="row">
+
+        <!--<a href="/compose"><i class="fa-solid fa-paper-plane compose"></i></a>-->
+        <div class="col-lg-2">
+            <ul class="navigation" style="list-style-type: none;">
+                <li class="buttons">
+                    <button onclick="location.href='/profile'" class="nav-buttons">Profile</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='/posts'" class="nav-buttons">Post</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='/bookmark'" class="nav-buttons">Bookmark<button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='#'" class="nav-buttons">Subscriptions</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='#'" class="nav-buttons">Logout</button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="feed-content">
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+            <hr>
+            <div class="feed-content">
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+            <hr>
+            <div class="feed-content">
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+            <hr>
+            <div class="feed-content">
+                <h3>Question?</h3>
+                <img class="feed-image" src="new1.jpg" alt="post-image">
+                <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p>
+                <!--A voting bar-->
+            </div>
+        </div>
+        <!--- Automatic Popup Login ------------>
+<div class="popup">
+        <button id="close">&times;</button>
+        <h1>Log In</h1>
+        <br>
+        <form id="login" method="post" action="/login">
+          <label><b>User Name
+          </b>
+          </label>
+          <input type="text" name="Uname" id="Uname" placeholder="Username">
+          <br><br>
+          <label><b>Password
+          </b>
+          </label>
+          <input type="Password" name="Pass" id="Pass" placeholder="Password">
+          <br><br>
+
+          <input type="checkbox" id="check">
+          <span>Remember me</span>
+          <br><br>
+          <a href="#">Forgot Password</a>
+          <button type="submit" name="log" id="log" > click to login </button>
+        </form>
+        <script >
+          window.addEventListener("load", function(){
+            setTimeout(
+              function open(event){
+                document.querySelector(".popup").style.display = "block";
+              },
+              2000
+            )
+          });
+          document.querySelector("#close").addEventListener("click", function(){
+            document.querySelector(".popup").style.display = "none";
+          });
+        </script>
+
+  </div>
+        <div class="col-lg-3 col-sm-3 trend">
+            <!--This trend container is linked with India health news to get trends api https://newsapi.org/s/india-health-news-api-->
+            <!--Health Headlines having font-size:x-large; font-family:sans-serif; font-weight:bold;-->
+            <!--<h3>This is heading 1</h3>
+            <hr>
+            <h3>This is heading 2</h3>
+            <hr>
+            <h3>This is heading 3</h3>
+            <hr>-->
+            <ul style="list-style-type:none; overflow: scroll;">
+                <% NEWS.forEach(function(newsitem){ %>
+                    <li>
+                        <p style="text-align:justify;"><%=newsitem.title%><a href="<%=newsitem.url%>" target="_blank">Read More...</a></p>
+                    </li>
+                    <hr>
+                <% }) %>-->
+            </ul>
+        </div>
+    </div>
+
+
+    <footer>
+        <%- include("partials/footer"); -%>
+    </footer>
+</body>
+</html>
+

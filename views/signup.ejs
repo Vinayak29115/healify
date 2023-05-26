@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head"); -%>
+</head>
+<body >
+    <header>
+        <%- include("partials/header"); -%>
+    </header>
+    <br>
+    <div>
+        <h1 class="main-head">Online health Community & Personal Training</h1>
+        <p class="main-head main-content">Get an edge over others</p>
+    </div>
+    <br>
+    <br>
+    <div class="row ">
+        <div class="col-lg-3 col-sm-12 content">
+            <div class="col-lg-12 col-sm-12">
+            <h3 class="attract-head">Connect with other peoples</h3>
+            <p class="attract-para">We believe getting more and right suggestions will heal you in different ways.Connects with us and see the magic.</p>
+            </div>
+            <br>
+            <div class="col-lg-12 col-sm-12">
+                <p>In this Community you'll get to:</p>
+                <ul class="signup">
+                    <li class="signup-item">Push health related queries to community.</li>
+                    <li class="signup-item">Get professional assistance.</li>
+                    <li class="signup-item">All in one caretaker</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-12 bg-dark content">
+            <form action="/signup" method="post">
+                <input class="form-control" name="fname" type="text" placeholder="First Name"><br>
+                <input class="form-control" name="lname" type="text" placeholder="Last Name"><br>
+                <input class="form-control" name="myemail" type="email" placeholder="Email"><br>
+                <input class="form-control" name="mypass" type="password" placeholder="Password"><br>
+                <input class="form-control" name="mypass2" type="password" placeholder="Confirm Password"><br>           
+                <input class="form-control" name="mynum" type="tel" placeholder="Contact Number"><br>
+                <input class="btn btn-success" type="submit" value="Sign Up">
+            </form> 
+        </div>
+    </div>
+    <footer>
+        <%- include("partials/footer"); -%>
+    </footer>
+</body>
+</html>

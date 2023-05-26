@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head"); -%>
+</head>
+<body>
+    <header>
+        <%- include("partials/header"); -%>
+    </header>
+    <div class="row">
+        <div class="col-lg-3 col-sm-1">
+            <ul class="navigation" style="list-style-type: none;">
+                <li class="buttons">
+                    <button onclick="location.href='/profile'" class="nav-buttons">PROFILE</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='/bookmark'" class="nav-buttons">BOOKMARK</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='/assistance'" class="nav-buttons">ASSISTANCE</button>
+                </li>
+                <li class="buttons">
+                    <button onclick="location.href='#'" class="nav-buttons">LOGOUT</button>
+                </li>
+            </ul> 
+        </div>
+        <div class="col-lg-6 col-sm-2 bookmark">
+            <ul class="row bookmark-main">
+                <!-- <li class="col-lg-12 col-sm-4 bookmark-content">
+                    <p style="display:inline">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><button href="#" class="bookmark-button">Read More...</button><hr>
+                </li> -->
+                <%  newListSaves.forEach(function(save){ %>
+                <li class="col-lg-12 col-sm-4 bookmark-content">
+                  <h2><%= save.head%></h2>
+                  <p style="display:inline"><%= save.data%></p>
+                  <hr>
+                </li>
+                <%  }) %>
+            </ul>
+        </div>
+        <div class="col bookmark">
+
+        </div>
+    </div>
+    
+</body>
+</html>

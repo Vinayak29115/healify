@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); -%>
+    <script src="https://kit.fontawesome.com/5c36939bbc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="overlay">
+    <header>
+      <%- include("partials/header"); -%>
+    </header>
+    <div class="row">
+
+      <!--<a href="/compose"><i class="fa-solid fa-paper-plane compose"></i></a>-->
+      <div class="col-lg-2">
+        <ul class="navigation" style="list-style-type: none; padding-left: 0;">
+          <li class="buttons">
+            <button onclick="location.href='/profile'" class="nav-buttons">PROFILE</button>
+          </li>
+          <li class="buttons">
+            <button onclick="location.href='/bookmark'" class="nav-buttons">BOOKMARK</button>
+          </li>
+          <li class="buttons">
+            <button onclick="location.href='/assistance'" class="nav-buttons">ASSISTANCE</button>
+          </li>
+          <li class="buttons">
+            <button onclick="location.href='#'" class="nav-buttons">LOGOUT</button>
+          </li>
+          <li class="buttons">
+            <button class="post-button" onclick="location.href='/compose'">+ add</button>
+          </li>
+        </ul>
+      </div>
+
+        <div class="col-lg-7">
+          <!-- <div class="feed-content">
+          <h3>Question?</h3>
+          <img class="feed-image" src="new1.jpg" alt="post-image">
+          <p class="feed-info">In this section user will describe about his probem in atmost 250 words. He can mention any thing but remember it must include as much formal keyowrds as he can.</p> -->
+          <!--A voting bar-->
+          <!-- </div>
+          <hr> -->
+          <div class="feed-content">
+            <ul style="list-style-type:none;">
+              <%newListFeeds.forEach(function(feed){ %>
+                <li>
+                  <h2><%= feed.head%></h2>
+                  <img class="feed-image"src="<%= feed.picture%>" alt="feedImage" >
+                  <p class="feed-info"><%= feed.data%></p>
+                  <hr>
+                </li>
+              <%  }) %>
+            </ul>
+          </div>
+        </div>
+         <div class="col-lg-3 col-sm-3 trend">
+            <!--This trend container is linked with India health news to get trends api https://newsapi.org/s/india-health-news-api-->
+            <!--Health Headlines having font-size:x-large; font-family:sans-serif; font-weight:bold;-->
+            <!--<h3>This is heading 1</h3>
+            <hr>
+            <h3>This is heading 2</h3>
+            <hr>
+            <h3>This is heading 3</h3>
+            <hr>-->
+            <ul style="list-style-type:none; overflow: scroll;">
+              <% NEWS.forEach(function(newsitem){ %>
+                <li>
+                  <p style="text-align:justify;"><%=newsitem.title%><a href="<%=newsitem.url%>" target="_blank">Read More...</a></p>
+                </li>
+                <hr>
+                <% }); %>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <%- include("login"); -%>
+    </div>
+    
+    <footer>
+        <%- include("partials/footer"); -%>
+    </footer>
+</body>
+</html>
